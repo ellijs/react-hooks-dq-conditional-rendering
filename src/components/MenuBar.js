@@ -1,6 +1,6 @@
 import React from "react";
 
-function MenuBar(props) {
+function MenuBar( {handleOnClick, showChild } ) {
   /*
 
   The 'span' tags below are the menu items. Think about the way a menu 
@@ -11,23 +11,23 @@ function MenuBar(props) {
   this component be made aware of what is currently the active menu item?
 
   */
-
+ 
   return (
     <div className="ui four item menu">
-      <span className="item active">
+      <span onClick={()=>handleOnClick("profile")} className={showChild === "profile"? "item active": "item"}>
         <i className="user large icon" />
       </span>
 
-      <span className="item">
+      <span onClick={()=>handleOnClick("photos")} className={showChild === "photos"? "item active": "item"}>
         <i className="photo large icon" />
       </span>
 
-      <span className="item">
+      <span onClick={()=>handleOnClick("cocktails")} className={showChild === "cocktails"? "item active": "item"}>
         <i className="cocktail large icon" />
       </span>
 
-      <span className="item">
-        <i className=" themeisle large icon" />
+      <span onClick={()=>handleOnClick("pokemon")}className={showChild === "pokemon"? "item active": "item"}>
+        <i className="themeisle large icon" />
       </span>
     </div>
   );
